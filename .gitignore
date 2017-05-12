@@ -1,0 +1,47 @@
+*.iml
+*.pydevproject
+.project
+.metadata
+tmp/**
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+.classpath
+.settings/
+.loadpath
+*.log
+*.log.*
+.sass-cache/
+rebel.xml
+.DS_Store
+node_modules/
+admin/assets/9da57c4a/
+
+# idea project folder
+.idea/
+
+# External tool builders
+.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+.vscode
+# CDT-specific
+.cproject
+
+# PDT-specific
+.buildpath
+
+target/
+target/*
+
+*.class
+*.MF
+logs/
+bin/
+node_modules
+output/*
+out/
+myself/
