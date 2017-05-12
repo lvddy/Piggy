@@ -12,6 +12,7 @@
         <module>piggy-discovery</module>
         <module>piggy-config</module>
         <module>piggy-account</module>
+        <module>piggy-monitor</module>
     </modules>
 
     <repositories>
