@@ -1,0 +1,19 @@
+logging:
+  level: DEBUG
+
+server:
+ port: 8888
+
+spring:
+ cloud:
+  config:
+    server:
+      git:
+        uri: file://E:/git/config-repo
+
+  name: piggy-config
+
+management:
+  security:
+   enabled: false
+
