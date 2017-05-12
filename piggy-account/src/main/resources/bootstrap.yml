@@ -1,7 +1,10 @@
 spring:
   cloud:
     config:
-     uri: http://localhost:8888
-     failFast: true
+     #uri: http://localhost:8888 不注册为服务的做法
+      discovery:
+        enabled: true
+        serviceId: piggy-server
+      failFast: true
   application:
     name: piggy-account

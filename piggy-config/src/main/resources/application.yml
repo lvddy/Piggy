@@ -18,6 +18,10 @@ spring:
   profiles:
     active: native
 
+eureka:   #将其注册为config为一个服务,极其方便进行集群
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
 
 management:
   security:
