@@ -15,6 +15,7 @@
         <module>piggy-monitor</module>
     </modules>
 
+
     <repositories>
         <repository>
             <id>spring-snapshots</id>
@@ -52,6 +53,7 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <lombok.version>1.16.8</lombok.version>
     </properties>
 
     <dependencyManagement>
@@ -63,7 +65,23 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+
+            <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-log4j2</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>
