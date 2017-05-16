@@ -1,6 +1,8 @@
 package com.lvddy.piggy.account.controller;
 
 import com.lvddy.piggy.account.constant.UrlConstants;
+
+import com.netflix.eureka.resources.ApplicationResource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
