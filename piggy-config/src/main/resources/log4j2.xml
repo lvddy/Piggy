@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="OFF">
+    <Properties>
+        <Property name="logFilePath">/home/grow/logs/weike-program</Property>
+        <Property name="logFileName">log</Property>
+    </Properties>
+    <Appenders>
+        <!--很直白，Console指定了结果输出到控制台-->
+        <Console name="ConsolePrint" target="SYSTEM_OUT">
+            <PatternLayout charset="utf-8" pattern="%d{yyyy.MM.dd HH:mm:ss z} %t %-5level %class{36} %L %M - %msg%xEx%n"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <!--logger用于定义log的level以及所采用的appender，如果无需自定义，可以使用root解决，root标签是log的默认输出形式-->
+        <!-- 级别顺序（低到高）：TRACE < DEBUG < INFO < WARN < ERROR < FATAL -->
+        <Root level="INFO" includeLocation="true">
+            <!-- 只要是级别比ERROR高的，包括ERROR就输出到控制台 -->
+            <!--appender-ref中的值必须是在前面定义的appenders-->
+            <Appender-ref level="info" ref="ConsolePrint"/>
+        </Root>
+    </Loggers>
+</Configuration>
