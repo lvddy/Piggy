@@ -7,4 +7,4 @@ spring:
         serviceId: piggy-server
       failFast: true
   application:
-    name: piggy-account
+    name: piggy-auth

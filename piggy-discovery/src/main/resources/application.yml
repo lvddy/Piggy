@@ -10,6 +10,9 @@ eureka:
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
 
+  server:
+    renewalPercentThreshold: 0.49
+
 spring:
   application:
     name: piggy-discovery

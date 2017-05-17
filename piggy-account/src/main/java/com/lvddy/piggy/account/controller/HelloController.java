@@ -6,8 +6,16 @@ import com.netflix.eureka.resources.ApplicationResource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration;
+import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
+import org.springframework.cloud.client.loadbalancer.LoadBalancerInterceptor;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,7 +29,11 @@ import java.util.Map;
 public class HelloController {
 
     @Autowired
-    DiscoveryClient discoveryClient;
+    private DiscoveryClient discoveryClient;
+
+    @Autowired
+    @LoadBalanced
+    private RestTemplate restTemplate;
 
     /**
      * 获取注册服务的信息
@@ -47,6 +59,17 @@ public class HelloController {
         });
         System.out.println(services.toString());
         return result;
+    }
+
+    @GetMapping("/hello")
+    public String hello(){
+        ResponseEntity<String> result = restTemplate.getForEntity("http://piggy-service/hello", String.class);
+        String hello = restTemplate.getForObject("http://piggy-service/hello", String.class);
+        LoadBalancerClient client;
+        LoadBalancerAutoConfiguration configuration;
+        String body = result.getBody();
+        LoadBalancerInterceptor interceptor;
+        return body;
     }
 
 }
