@@ -14,6 +14,7 @@
         <module>piggy-account</module>
         <module>piggy-monitor</module>
         <module>piggy-auth</module>
+        <module>piggy-snowflake</module>
     </modules>
 
 
