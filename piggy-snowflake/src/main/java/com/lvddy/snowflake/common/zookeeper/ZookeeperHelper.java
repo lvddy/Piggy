@@ -5,6 +5,7 @@ import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.KeeperException;
 import org.apache.zookeeper.ZooKeeper;
 import org.apache.zookeeper.data.ACL;
+import org.apache.zookeeper.data.Stat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -57,6 +58,25 @@ public class ZookeeperHelper {
             e.printStackTrace();
         }
         return s;
+    }
+
+    /**
+     * 判断节点是否存在
+     * @param path 节点路径
+     * @param watch 是否watch
+     * @return 有->true, 无->false
+     */
+    public boolean existNode(String path, boolean watch){
+        try {
+            Stat exists = zooKeeper.exists(path, watch);
+            if(exists == null){
+                return false;
+            }
+        } catch (KeeperException | InterruptedException e) {
+            log.error("action=`existNode` state=`check Node failed` message=`check path:{}` error", path);
+            e.printStackTrace();
+        }
+        return true;
     }
 
 }
