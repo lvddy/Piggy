@@ -11,6 +11,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 @EnableEurekaClient
 public class GeneratorApplication {
 
+
     public static void main(String[] args) {
         SpringApplication.run(GeneratorApplication.class, args);
     }
